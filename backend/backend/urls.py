@@ -20,6 +20,7 @@ from backend_api import views
 
 router = routers.DefaultRouter()
 router.register(r'courses', views.CourseViewSet)
+router.register(r'crews', views.CrewViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
