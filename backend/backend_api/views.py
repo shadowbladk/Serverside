@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from course_api.serializers import CourseSerializer
-from course_api.models import Course
+from backend_api.serializers import CourseSerializer
+from backend_api.models import Course
 from rest_framework import viewsets
 
 # Create your views here.

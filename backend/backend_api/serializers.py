@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from course_api.models import Course
+from backend_api.models import Course
 
 class CourseSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
