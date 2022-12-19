@@ -16,7 +16,7 @@ class Course(models.Model):
     ]
     year = models.IntegerField(choices=YEAR_CHOICES)
     semester = models.IntegerField(choices=SEMESTER_CHOICES)
-    courseid = models.IntegerField()
+    courseid = models.CharField(max_length=255)
     coursename = models.CharField(max_length=255)
     prerequisite = models.CharField(max_length=255, default='None')
     program = models.CharField(max_length=255)
