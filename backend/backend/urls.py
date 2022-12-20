@@ -20,7 +20,9 @@ from backend_api import views
 
 router = routers.DefaultRouter()
 router.register(r'courses', views.CourseViewSet)
-router.register(r'crews', views.CrewViewSet)
+router.register(r'professors', views.ProfessorViewSet)
+router.register(r'alumni', views.AlumniViewSet)
+router.register(r'news', views.NewsViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),

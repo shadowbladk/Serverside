@@ -1,5 +1,5 @@
 from django.db import models
-
+from cloudinary.models import CloudinaryField
 # Create your models here.
 
 class Course(models.Model):
@@ -23,20 +23,30 @@ class Course(models.Model):
     credit = models.CharField(max_length=255)
     description = models.TextField()
 
-class Crew(models.Model):
-    ROLE_CHOICES = [
-        ("Professor", "Professor"),
-        ("Alumni", "Alumni")
-    ]
-
+class Professor(models.Model):
+    id = models.IntegerField(primary_key=True, auto_created=True)
     name = models.CharField(max_length=255)
-    picture = models.ImageField()
-    role = models.CharField(max_length=10, choices=ROLE_CHOICES)
+    picture = CloudinaryField('image')
     tel = models.CharField(max_length=10)
     email = models.EmailField(max_length=255)
     twitter = models.URLField(max_length=255)
     facebook = models.URLField(max_length=255)
     about = models.TextField()
-    
-    
-    
+
+class Alumni(models.Model):
+    id = models.IntegerField(primary_key=True, auto_created=True)
+    name = models.CharField(max_length=255)
+    picture = CloudinaryField('image')
+    tel = models.CharField(max_length=10)
+    email = models.EmailField(max_length=255)
+    twitter = models.URLField(max_length=255)
+    facebook = models.URLField(max_length=255)
+    about = models.TextField()
+
+class News(models.Model):
+    id = models.IntegerField(primary_key=True, auto_created=True)
+    title = models.CharField(max_length=255)
+    picture = CloudinaryField('image', null=True)
+    detail = models.TextField()
+    created = models.DateTimeField(auto_now_add=True)
+    modified = models.DateTimeField(auto_now=True)

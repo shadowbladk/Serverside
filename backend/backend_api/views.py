@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from backend_api.serializers import CourseSerializer, CrewSerializer
-from backend_api.models import Course, Crew
+from backend_api.serializers import CourseSerializer, ProfessorSerializer, AlumniSerializer,NewsSerializer
+from backend_api.models import Course, Professor, Alumni, News
 from rest_framework import viewsets
 from rest_framework import permissions
 from rest_framework.pagination import LimitOffsetPagination
@@ -12,8 +12,20 @@ class CourseViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     pagination_class = LimitOffsetPagination
 
-class CrewViewSet(viewsets.ModelViewSet):
-    queryset = Crew.objects.all()
-    serializer_class = CrewSerializer
+class ProfessorViewSet(viewsets.ModelViewSet):
+    queryset = Professor.objects.all()
+    serializer_class = ProfessorSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    pagination_class = LimitOffsetPagination
+
+class AlumniViewSet(viewsets.ModelViewSet):
+    queryset = Alumni.objects.all()
+    serializer_class = AlumniSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    pagination_class = LimitOffsetPagination
+
+class NewsViewSet(viewsets.ModelViewSet):
+    queryset = News.objects.all()
+    serializer_class = NewsSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     pagination_class = LimitOffsetPagination
