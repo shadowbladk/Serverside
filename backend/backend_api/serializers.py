@@ -15,8 +15,13 @@ class AlumniSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Alumni
         fields = '__all__'
-        
-class NewsSerializer(serializers.HyperlinkedModelSerializer):
+
+class NewsSerializer(serializers.ModelSerializer):
     class Meta:
         model = News
         fields = '__all__'
+
+class NewsPostSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = News
+        fields = ['title', 'picture', 'detail']

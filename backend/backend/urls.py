@@ -17,14 +17,17 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 from backend_api import views
+from backend_api.views import NewsAPIView
 
 router = routers.DefaultRouter()
 router.register(r'courses', views.CourseViewSet)
 router.register(r'professors', views.ProfessorViewSet)
 router.register(r'alumni', views.AlumniViewSet)
-router.register(r'news', views.NewsViewSet)
+# router.register(r'news', views.NewsViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
     path('api-auth/', include('rest_framework.urls')),
+    path('news/', NewsAPIView.as_view()),
+    path('news/<str:pk>', NewsAPIView.as_view()),
 ]
